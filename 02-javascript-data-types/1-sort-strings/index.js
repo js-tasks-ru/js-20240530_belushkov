@@ -5,5 +5,14 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-
+  let newArr = [...arr]; // создаем копию массива чтобы не мутировать исходный массив
+  return newArr.sort((a, b) => {
+    let comparison = a.localeCompare(b, undefined, {
+      caseFirst: 'upper'
+    }); // сортируем с преимуществом для верхнего регистра
+    if (param === 'desc') {
+      comparison *= -1; // меняем порядок сортировки на обратный, если параметр 'desc'
+    }
+    return comparison;
+  });
 }
