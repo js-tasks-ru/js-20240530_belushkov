@@ -5,9 +5,9 @@
  * @returns {string[]}
  */
 export function sortStrings(arr, param = 'asc') {
-  let newArr = [...arr]; // создаем копию массива чтобы не мутировать исходный массив
+  const newArr = [...arr]; // создаем копию массива чтобы не мутировать исходный массив
   return newArr.sort((a, b) => {
-    let comparison = a.localeCompare(b, undefined, {
+    let comparison = a.localeCompare(b, ['ru', 'en'], {
       caseFirst: 'upper'
     }); // сортируем с преимуществом для верхнего регистра
     if (param === 'desc') {
